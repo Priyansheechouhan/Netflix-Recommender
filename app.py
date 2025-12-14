@@ -13,7 +13,18 @@ load_dotenv()
 # -----------------------------
 MONGO_URI = os.environ.get("MONGO_URI")
 
-client = MongoClient(MONGO_URI)
+if not MONGO_URI:
+    raise ValueError("MONGO_URI not set")
+
+client = MongoClient(
+    MONGO_URI,
+    tls=True,
+    serverSelectionTimeoutMS=30000
+)
+
+# Optional but recommended: force connection check
+client.admin.command("ping")
+
 db = client.netflix_db
 movies_collection = db.movies
 reco_collection = db.recommendations
@@ -81,4 +92,4 @@ def recommend():
     )
 
 if __name__ == "__main__":
-    app.run(debug=True, use_reloader=False)
+    app.run(debug=True)
