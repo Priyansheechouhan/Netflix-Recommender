@@ -23,7 +23,7 @@ client = MongoClient(
 )
 
 # Optional but recommended: force connection check
-client.admin.command("ping")
+#client.admin.command("ping")
 
 db = client.netflix_db
 movies_collection = db.movies
@@ -93,3 +93,4 @@ def recommend():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
