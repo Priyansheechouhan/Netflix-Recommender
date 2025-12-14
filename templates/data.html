@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recommended Movies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    .container {
+      max-width: 90%;
+      margin: 40px auto;
+      background-color: #141414;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    h2 {
+      text-align: center;
+      color: #e50914;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      text-align: center;
+      color: #4caf50;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .table-container {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 70%;
+      margin: auto;
+      border-collapse: collapse;
+      background-color: #1f1f1f;
+    }
+
+    thead {
+      background-color: #e50914;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+
+    th {
+      color: #ffffff;
+      font-size: 16px;
+    }
+
+    td {
+      color: #dddddd;
+    }
+
+    tr:hover {
+      background-color: #2a2a2a;
+    }
+
+    .back-btn {
+      display: block;
+      width: 200px;
+      margin: 30px auto 0;
+      padding: 12px;
+      background-color: #e50914;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .back-btn:hover {
+      background-color: #b20710;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>Recommended For You</h2>
+
+    <div class="message">
+      {{ Y }}
+    </div>
+
+    <div class="table-container">
+      {{ Z | safe }}
+    </div>
+
+    <a href="/" class="back-btn">⬅ Go Back</a>
+  </div>
+
+</body>
+</html>

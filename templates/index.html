@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Netflix Movie Recommender</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      color: #ffffff;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 80px auto;
+      background-color: #141414;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    h1 {
+      text-align: center;
+      color: #e50914;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      color: #cccccc;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    select, input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: none;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    select:focus, input:focus {
+      outline: none;
+      box-shadow: 0 0 5px #e50914;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 14px;
+      background-color: #e50914;
+      border: none;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #b20710;
+    }
+
+    .footer-text {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #888;
+    }
+    select,
+    input[type="number"],
+    button,
+    input[type="submit"] {
+    width: 100%;
+    box-sizing: border-box;
+}
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Netflix Movie Recommender</h1>
+    <p>Discover movies similar to what you love</p>
+
+    <form action="/recommend" method="post">
+
+      <label for="movie">Choose a Movie</label>
+      <select name="movie" required>
+        {% for movie in movies_list %}
+          <option value="{{ movie }}">{{ movie }}</option>
+        {% endfor %}
+      </select>
+
+      <label for="top_n">Number of Recommendations</label>
+      <input type="number" name="top_n" min="1" max="20" placeholder="e.g. 10" required>
+
+      <input type="submit" value="Get Recommendations">
+    </form>
+
+    <div class="footer-text">
+      Built with ❤️ using Machine Learning & Flask
+    </div>
+  </div>
+
+</body>
+</html>
